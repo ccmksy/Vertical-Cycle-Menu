@@ -1,0 +1,32 @@
+body {
+    background: #ececec;
+}
+
+h2 {
+    color: #333333;
+}
+
+em {
+    color: #999999;
+}
+
+.vcmenu {
+    border-radius: 20px;
+    background: #ffffff;    
+    height: auto;
+    margin-bottom: 50px;
+    padding: 30px;
+}
+
+.vcmenu ul { 
+    display: none;
+    margin: 20px;
+}
+
+.vcmenu li {
+    margin-bottom: 10px;
+}
+
+.vcmenu li span {
+    cursor: pointer;
+}
