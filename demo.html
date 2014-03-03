@@ -8,9 +8,13 @@
         <script type="text/javascript" src="jquery-vcmenu.js"></script>        
         <script type="text/javascript">
         $(function(){
-            $('#Style1').vcmenu({});
+            $('#Style1').vcmenu();
             
             $('#Style2').vcmenu({
+                button_method: 2
+            });
+            
+            $('#Style3').vcmenu({
                 auto_loop: true
             });
         });
@@ -18,7 +22,7 @@
     </head>
     <body>
         
-        jj
+        
         <h1>Vertical Cycle Menu</h1>
         
         <p>
@@ -56,10 +60,33 @@
             </li>
         </ul>
         
+        <h2>No Auto Loop #2</h2>
+        
+        <ul id="Style2" class="vcmenu">
+            <li><span>Item-1</span>
+                <ul>
+                    <li><a href="/user-link-module">Sub-item-1</a></li>
+                    <li>Sub-item-2</li>
+                </ul>
+            </li>        
+            <li><span>Item-2</span>
+                <ul>
+                    <li>Sub-item-1</li>
+                    <li>Sub-item-2</li>
+                </ul>            
+            </li>
+            <li><span>Item-3</span>
+                <ul>
+                    <li>Sub-item-1</li>
+                    <li>Sub-item-2</li>
+                </ul>            
+            </li>
+        </ul>        
+        
         
         <h2>Auto loop</h2>
         
-        <ul id="Style2" class="vcmenu">
+        <ul id="Style3" class="vcmenu">
             <li><span>Item-1</span>
                 <ul>
                     <li><a href="/user-link-module">Sub-item-1</a></li>
