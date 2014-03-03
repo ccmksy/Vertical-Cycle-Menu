@@ -1,3 +1,4 @@
+/* Demo Style */
 body {
     background: #ececec;
 }
@@ -10,12 +11,18 @@ em {
     color: #999999;
 }
 
+/* VCMenu Style */
 .vcmenu {
     border-radius: 20px;
-    background: #ffffff;    
-    height: auto;
+    background: #ffffff;  
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
     margin-bottom: 50px;
     padding: 30px;
+    position: relative;
+    float: left;
+    margin-right: 50px;
 }
 
 .vcmenu ul { 

@@ -8,13 +8,13 @@
         <script type="text/javascript" src="jquery-vcmenu.js"></script>        
         <script type="text/javascript">
         $(function(){
-            $('#Style1').vcmenu();
+            $('#NoLoopUL1').vcmenu();
             
-            $('#Style2').vcmenu({
+            $('#NoLoopUL2').vcmenu({
                 button_method: 2
             });
             
-            $('#Style3').vcmenu({
+            $('#AutoLoopUL').vcmenu({
                 auto_loop: true
             });
         });
@@ -37,9 +37,30 @@
         
         <br/>
         
-        <h2>No Auto Loop #1</h2>
+       <ul id="AutoLoopUL" class="vcmenu">
+            <li style="list-style: none; background-color: #eeeeee;"><h2>Auto Loop</h2></li>
+            <li><span>Item-1</span>
+                <ul>
+                    <li><a href="/user-link-module">Sub-item-1</a></li>
+                    <li>Sub-item-2</li>
+                </ul>
+            </li>        
+            <li><span>Item-2</span>
+                <ul>
+                    <li>Sub-item-1</li>
+                    <li>Sub-item-2</li>
+                </ul>            
+            </li>
+            <li><span>Item-3</span>
+                <ul>
+                    <li>Sub-item-1</li>
+                    <li>Sub-item-2</li>
+                </ul>            
+            </li>
+        </ul>          
         
-        <ul id="Style1" class="vcmenu">
+        <ul id="NoLoopUL1" class="vcmenu">
+            <li style="list-style: none; background-color: #eeeeee;"><h2>No Auto Loop #1</h2></li>
             <li><span>Item-1</span>
                 <ul>
                     <li><a href="/user-link-module">Sub-item-1</a></li>
@@ -59,10 +80,9 @@
                 </ul>            
             </li>
         </ul>
-        
-        <h2>No Auto Loop #2</h2>
-        
-        <ul id="Style2" class="vcmenu">
+
+       <ul id="NoLoopUL2" class="vcmenu">
+            <li style="list-style: none; background-color: #eeeeee;"><h2>No Auto Loop #2</h2></li>
             <li><span>Item-1</span>
                 <ul>
                     <li><a href="/user-link-module">Sub-item-1</a></li>
@@ -81,30 +101,8 @@
                     <li>Sub-item-2</li>
                 </ul>            
             </li>
-        </ul>        
+        </ul>      
         
-        
-        <h2>Auto loop</h2>
-        
-        <ul id="Style3" class="vcmenu">
-            <li><span>Item-1</span>
-                <ul>
-                    <li><a href="/user-link-module">Sub-item-1</a></li>
-                    <li>Sub-item-2</li>
-                </ul>
-            </li>        
-            <li><span>Item-2</span>
-                <ul>
-                    <li>Sub-item-1</li>
-                    <li>Sub-item-2</li>
-                </ul>            
-            </li>
-            <li><span>Item-3</span>
-                <ul>
-                    <li>Sub-item-1</li>
-                    <li>Sub-item-2</li>
-                </ul>            
-            </li>
-        </ul>        
+       
     </body>
 </html>
