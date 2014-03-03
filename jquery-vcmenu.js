@@ -48,7 +48,7 @@ $(function(){
         var options = $.extend(defaults, options); 
         
         
-        //this.each(function() { 
+        this.each(function() { 
             
             // Object variable
             var obj = $(this);        
@@ -178,7 +178,7 @@ $(function(){
                 button(options.button_method);
             }        
         
-        //});
+        });
 
     };    
     
