@@ -3,20 +3,56 @@
     <head>
         <title>Vertical Cycle Menu - Demo</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <style type="text/css">
+        body { background: #ececec; }
+        h2 { color: #333333; }
+        em { color: #999999; }  
+        
+        #AutoLoopUL,
+        #NoLoopUL1,
+        #NoLoopUL2 {
+            border-radius: 20px;
+            background: #ffffff;  
+            width: 250px;
+            height: 300px;  
+            margin-bottom: 50px;
+            padding: 30px;
+            position: relative;
+            float: left;
+            margin-right: 50px;            
+        }
+        
+        #AutoLoopUL ul,
+        #NoLoopUL1 ul,
+        #NoLoopUL2 ul {
+            margin: 20px;
+        }    
+        
+        #AutoLoopUL li,
+        #NoLoopUL1 li,
+        #NoLoopUL2 li {
+            margin-bottom: 10px;
+        }         
+        </style>
+        
         <link rel="stylesheet" type="text/css" href="jquery-vcmenu.css" />
         <script type="text/javascript" src="jquery-1.10.2.js"></script>
         <script type="text/javascript" src="jquery-vcmenu.js"></script>        
         <script type="text/javascript">
         $(function(){
+            
+            $('#AutoLoopUL').vcmenu({
+                auto_loop:          true,
+                auto_interval:      3000
+            });
+            
             $('#NoLoopUL1').vcmenu();
             
             $('#NoLoopUL2').vcmenu({
-                button_method: 2
-            });
+                button_method:      2
+            });            
             
-            $('#AutoLoopUL').vcmenu({
-                auto_loop: true
-            });
         });
         </script>        
     </head>

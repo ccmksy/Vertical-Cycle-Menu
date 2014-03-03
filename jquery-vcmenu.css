@@ -1,39 +1,9 @@
-/* Demo Style */
-body {
-    background: #ececec;
-}
-
-h2 {
-    color: #333333;
-}
-
-em {
-    color: #999999;
-}
-
 /* VCMenu Style */
 .vcmenu {
-    border-radius: 20px;
-    background: #ffffff;  
-    width: 250px;
-    height: 300px;
-    overflow: hidden;
-    margin-bottom: 50px;
-    padding: 30px;
-    position: relative;
-    float: left;
-    margin-right: 50px;
+    overflow: hidden;                   /* mandatory */
 }
 
 .vcmenu ul { 
-    display: none;
-    margin: 20px;
-}
-
-.vcmenu li {
-    margin-bottom: 10px;
-}
-
-.vcmenu li span {
-    cursor: pointer;
+    display: none;                      /* mandatory */
+    height: auto;                       /* Height will be changed by javascript */
 }

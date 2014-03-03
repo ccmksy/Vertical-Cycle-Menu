@@ -3,11 +3,11 @@
  * 
  * Author : Mike Yeung - www.cloud-design.hk
  * License : Dual licensed under the MIT and GPL licenses
- * Version : 1.3.3
+ * Version : 1.3.4
  * Last revised: 2014-03-03
  * 
  * Example :
- *  <ul>
+ *  <ul class='vcmenu'>
  *      <li><span>Item1</span>
  *          <ul>
  *              <li>sub item 1 </li>
@@ -34,25 +34,31 @@ $(function(){
         
         // Default configuration properties
         var defaults = {
-            title_selector:               'span',
+            title_selector:             'span',
             notice_height:              'auto',
-            notice_first_display:         false,
-            notice_first_delay:           500,
-            notice_open_style:          'slide',
+            notice_first_display:      false,
+            notice_first_delay:        500,
+            notice_open_style:         'slide',
             button_method:             'default',
             auto_loop:                  false,
-            auto_interval:               3000
+            auto_interval:              3000
         };
         
         // Extend options
-        var options = $.extend(defaults, options); 
-        
+        var options = $.extend(defaults, options);         
         
         this.each(function() { 
             
             // Object variable
-            var obj = $(this);        
-        
+            var obj = $(this);     
+            
+            // CSS setting            
+            $('ul', obj).css({
+                'height':   options.notice_height           
+            });
+            $(options.title_selector, obj).css({
+                'cursor': 'pointer'
+            });                    
 
             //----------------------------------------------------------------------
             // Functions Setting
