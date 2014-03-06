@@ -37,9 +37,11 @@ $(function(){
             title_selector:             'span',
             notice_height:              'auto',
             notice_first_display:      false,
-            notice_first_delay:        500,
-            notice_open_style:         'slide',
-            button_method:             'default',
+            notice_first_delay:        1000,
+            notice_open_style:         '',                                    // default is slide
+            notice_close_style:        '',                                    // default is slide
+            notice_toggle_style:       '',                                    // default is slide
+            button_method:             '',
             auto_loop:                  false,
             auto_interval:              3000
         };
@@ -64,51 +66,40 @@ $(function(){
             // Functions Setting
             // ---------------------------------------------------------------------    
 
-            // Notice Open Style Function
-            function open_style(selector, style, method, fn)
-            {            
-                if(style === 'slide/fade')
+            // Notice Action Style Function
+            // Firstly choose ation, then secondly choose style
+            function notice_action_style(selector, action, style, fn)
+            {          
+                if(action === 'open')
                 {
-                    switch(method)
+                    switch(style)
                     {
-                        case 'open':    selector.slideDown(fn);     break;
-                        case 'close':   selector.fadeOut(fn);       break;
-                        default:        selector.slideToggle(fn);   break;
-                    }  
-                }              
-                if(style === 'fade/slide')
-                {
-                    switch(method)
-                    {
-                        case 'open':    selector.fadeIn(fn);        break;
-                        case 'close':   selector.slideUp(fn);       break;
-                        default:        selector.fadeToggle(fn);    break;
-                    }  
-                }                
-                if(style === 'fade')
-                {
-                    switch(method)
-                    {
-                        case 'open':    selector.fadeIn(fn);        break;
-                        case 'close':   selector.fadeOut(fn);       break;
-                        default:        selector.fadeToggle(fn);    break;
-                    }  
-                }                        
-                if(style === 'slide')
-                {
-                    switch(method)
-                    {
-                        case 'open':    selector.slideDown(fn);     break;
-                        case 'close':   selector.slideUp(fn);       break;
-                        default:        selector.slideToggle(fn);   break;
-                    }  
+                        case 'fade':    selector.fadeIn(fn);            break;
+                            default:    selector.slideDown(fn);         break;
+                    }
                 }
+                if(action === 'close')
+                {
+                    switch(style)
+                    {
+                        case 'fade':    selector.fadeOut(fn);            break;
+                            default:    selector.slideUp(fn);            break;
+                    }
+                } 
+                if(action === 'toggle')
+                {
+                    switch(style)
+                    {
+                        case 'fade':    selector.fadeToggle(fn);         break;
+                            default:    selector.slideToggle(fn);        break;
+                    }
+                }                   
             }
 
             // Notice First Function
             function notice_first(time, fn)
-            {
-               open_style( $(options.title_selector, obj).first().addClass("active").next("ul").delay(time), options.notice_open_style, 'open', fn);                         
+            {   
+               notice_action_style( $(options.title_selector, obj).first().addClass("active").next("ul").delay(time), 'open', 'slide', fn );
             }
 
             // Auto Run Function
@@ -118,9 +109,10 @@ $(function(){
                 timer = setInterval(function () 
                 {
                     index += 1;
-                    index %= $(options.title_selector, obj).length;
-                    open_style( $(".active", obj).removeClass("active").next("ul"), options.notice_open_style, 'close');
-                    open_style( $(options.title_selector, obj).eq(index).addClass("active").next("ul"), options.notice_open_style, 'open');
+                    index %= $(options.title_selector, obj).length;                    
+                    notice_action_style( $(".active", obj).removeClass("active").next("ul"), 'close', 'slide' );
+                    notice_action_style( $(options.title_selector, obj).eq(index).addClass("active").next("ul"), 'open', 'fade' );
+                    
                 }, interval);                         
             }      
 
@@ -134,20 +126,19 @@ $(function(){
                              var own_class = $(this).attr("class");
                              if(own_class === "active")
                              {
-                                 //open_style( $(".active").next("ul"), options.notice_open_style);
-                                 open_style( $(this).next("ul"), options.notice_open_style);
+                                 notice_action_style( $(this).next("ul"), 'toggle', 'fade' );
                              }
                              else
-                             {
-                                 open_style( $(".active", obj).removeClass("active").next("ul"), options.notice_open_style, 'close');
-                                 open_style( $(this).addClass("active").next("ul"), options.notice_open_style, 'open');
+                             {                                 
+                                 notice_action_style( $(".active", obj).removeClass("active").next("ul"), 'close', 'fade' );
+                                 notice_action_style( $(this).addClass("active").next("ul"), 'open', 'slide' );
                              }
                              index = $(options.title_selector).index( this );
                          });                     
                         break;
                     default:
                         $("li", obj).on("click", function(){
-                            open_style( $("ul", this), options.notice_open_style);
+                            notice_action_style( $("ul", this), 'toggle' );
                         });                    
                         break;
                 }                      
