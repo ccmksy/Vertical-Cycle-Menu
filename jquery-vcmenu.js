@@ -3,8 +3,8 @@
  * 
  * Author : Mike Yeung - www.cloud-design.hk
  * License : Dual licensed under the MIT and GPL licenses
- * Version : 1.3.5
- * Last revised: 2014-03-03
+ * Version : 1.3.6
+ * Last revised: 2014-03-10
  * 
  * Example :
  *  <ul class='vcmenu'>
